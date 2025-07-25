@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Success</title>
+  <style>
+    body {
+    margin: 0;
+    font-family: sans-serif;
+    height: 100vh;
+    background-image: url('img/background2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: -1;
+    }
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      width: 400px;
+    }
+    h2 {
+      text-align: center;
+      color: #2ecc71;
+    }
+    p {
+      margin: 10px 0;
+    }
+    .info {
+      background: #f1f1f1;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    a {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #3498db;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Sign-Up Successful!</h2>
+    <div id="userInfo" class="info"></div>
+    <a href="signup.html">← Back to Sign Up</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const output = `
+      <p><strong>First Name:</strong> ${params.get('fname') || ''}</p>
+      <p><strong>Last Name:</strong> ${params.get('lname') || ''}</p>
+      <p><strong>Date of Birth:</strong> ${params.get('dob') || ''}</p>
+      <p><strong>Gender:</strong> ${params.get('gender') || ''}</p>
+      <p><strong>Username:</strong> ${params.get('username') || ''}</p>
+      <p><strong>Email:</strong> ${params.get('email') || ''}</p>
+      <p><strong>Address:</strong> ${params.get('address') || ''}</p>
+      <p><strong>Contact:</strong> ${params.get('contact') || ''}</p>
+      <p><strong>Password:</strong> ${params.get('password') || ''}</p>
+    `;
+    document.getElementById("userInfo").innerHTML = output;
+  </script>
+</body>
+</html>
+
